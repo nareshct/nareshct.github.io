@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  :root {
+    --bg: #0E1512;
+    --surface: #161F1B;
+    --border: #27332E;
+    --text: #E8EDEB;
+    --text-muted: #93A29C;
+    --accent: #E2914F;
+    --accent-soft: #3A2E1D;
+    --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "Segoe UI Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    --font-sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 1px) 0 0 / 28px 28px,
+      var(--bg);
+    font-family: var(--font-sans);
+    color: var(--text);
+  }
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    padding: 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: 96px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .role {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    color: var(--text-muted);
+    margin-top: 22px;
+  }
+  .tags {
+    display: flex;
+    gap: 14px;
+    margin-top: 44px;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: var(--text);
+  }
+  .spine {
+    position: absolute;
+    top: 72px;
+    right: 80px;
+    bottom: 72px;
+    width: 2px;
+    background: var(--border);
+  }
+  .node {
+    position: absolute;
+    right: -5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--border);
+  }
+  .node.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 8px var(--accent-soft);
+  }
+  .url {
+    position: absolute;
+    bottom: 48px;
+    left: 80px;
+    font-family: var(--font-mono);
+    font-size: 24px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+  .url strong { color: var(--text); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="spine">
+      <div class="node" style="top: 0%;"></div>
+      <div class="node active" style="top: 33%;"></div>
+      <div class="node" style="top: 66%;"></div>
+      <div class="node" style="top: 100%;"></div>
+    </div>
+    <p class="eyebrow">10.0.0.0/16 — Cloud Engineer Portfolio</p>
+    <h1>Naresh C T</h1>
+    <p class="role">Aspiring Cloud Engineer — AWS &amp; Azure</p>
+    <div class="tags">
+      <span class="tag">EC2</span>
+      <span class="tag">VPC</span>
+      <span class="tag">S3</span>
+      <span class="tag">IAM</span>
+      <span class="tag">CloudWatch</span>
+    </div>
+    <p class="url">nareshct<strong>.github.io</strong></p>
+  </div>
+</body>
+</html>
