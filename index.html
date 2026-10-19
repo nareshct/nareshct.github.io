@@ -605,13 +605,13 @@
             <h3>Cloud Deployment of FoodOrder Application</h3>
             <a class="proj-link" href="https://github.com/nareshct/food-ordering-app" target="_blank" rel="noopener">github.com/nareshct/food-ordering-app →</a>
           </div>
-          <p class="proj-meta">Platform: AWS — VPC · EC2 · ALB · S3 · IAM · CloudWatch</p>
+          <p class="proj-meta">Platform: AWS — VPC · EC2 · S3 · IAM · CloudWatch</p>
           <ul class="proj-list">
-            <li>Built and deployed a full-stack application on AWS through guided, hands-on implementation — a multi-AZ VPC, an Application Load Balancer, and an EC2 instance hosting the application backend.</li>
-            <li>Configured an IAM role scoped to S3 access and security groups restricting traffic to the load balancer, applying least-privilege access concepts.</li>
+            <li>Built and deployed a full-stack application on AWS through guided, hands-on implementation — a multi-AZ VPC and an EC2 instance hosting the application backend.</li>
+            <li>Configured an IAM role scoped to S3 access and security groups restricting inbound traffic, applying least-privilege access concepts.</li>
             <li>Set up S3 for static asset storage and CloudWatch for basic log and CPU monitoring.</li>
             <li>Managed source code and the deployment workflow using Git and GitHub.</li>
-            <li>Rebuilt the deployment on a new AWS account on Windows Server, with nginx-for-Windows and PM2 running as a Windows service, fronted by an Application Load Balancer.</li>
+            <li>Rebuilt the deployment on a new AWS account on Windows Server, with nginx-for-Windows and PM2 running as a Windows service.</li>
           </ul>
 
           <div class="arch-diagram">
@@ -627,19 +627,13 @@
               <div class="vpc-box">
                 <span class="box-tag">VPC · 10.0.0.0/16 — foodorder-vpc</span>
 
-                <div class="diag-node alb">
-                  <span class="diag-tag">Application Load Balancer</span>
-                  <strong>:80 / :443 ← 0.0.0.0/0</strong>
-                </div>
-                <div class="diag-arrow">↓</div>
-
                 <div class="subnet-box">
                   <span class="box-tag">Public Subnet · 10.0.1.0/24 — ap-southeast-2a</span>
 
                   <div class="sg-box">
                     <span class="box-tag">Security Group · foodorder-win-sg</span>
                     <div class="port-row">
-                      <span class="port-chip">80 / 443 ← ALB</span>
+                      <span class="port-chip">80 / 443 ← 0.0.0.0/0</span>
                       <span class="port-chip restricted">3389 RDP ← my IP only</span>
                     </div>
 
